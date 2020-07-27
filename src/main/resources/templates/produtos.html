@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Spring CRUD Exemplo</title>
+    <th:block th:include="fragments/headerinc :: head"></th:block>
+</head>
+<body>
+<header>
+    <th:block th:include="fragments/header :: header"></th:block>
+</header>
+<section>
+<div class="container" style="width: 80%; padding-top: 50px;">
+    <div th:if="${not #lists.isEmpty(produtos)}">
+    
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Produto ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Preço</th>
+                <th scope="col">Visualizar</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Apagar</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr th:each="produto : ${produtos}">
+                    <th scope="row" th:text="${produto.id}">Id</td>
+                    <td th:text="${produto.produtoId}">Produto ID</td>
+                    <td th:text="${produto.nome}">Nome</td>
+                    <td th:text="${produto.preco}">Preço</td>
+                    <td><a th:href="${'/produto/' + produto.id}">Visualizar</a></td>
+                    <td><a th:href="${'/produto/' + produto.id}">Editar</a></td>
+                    <td><a th:href="${'/produto/delete/' + produto.id}">Deletar</a></td>
+                </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
+</section>
+</body>
+</html>
