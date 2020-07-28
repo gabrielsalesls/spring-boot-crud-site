@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Spring CRUD Exemplo</title>
+    <th:block th:include="fragments/headerinc :: head"></th:block>
+</head>
+<body>
+<header>
+    <th:block th:include="fragments/header :: header"></th:block>
+</header>
+<section>
+    <div class="container" style="width: 80%; padding-top: 50px;">
+    <div>
+        <th:block th:include="fragments/mensagemValidacao"></th:block>
+        <form method="post">
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Produto ID</label>
+              <div class="col-sm-10">
+                    <input type="text" class="form-control" name="produtoId" th:value="${produto.produtoId}">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Nome</label>
+              <div class="col-sm-10">
+                    <input type="text" class="form-control" name="nome" th:value="${produto.nome}">
+              </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Preço</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="preco" th:value="${produto.preco}">
+                  
+                    
+                <small class="form-text text-muted">(*) Campos obrigatórios</small>
+
+                <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Publicar</button>
+                <a href="/produtos" class="btn btn-light" role="button" style="margin-top: 10px;">Cancelar</a>
+                </div>
+              </div>
+          </form>
+    </div>
+</div>
+</section>
+</body>
+</html>

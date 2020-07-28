@@ -2,6 +2,7 @@ package com.project.springCrud.controllers;
 
 import com.project.springCrud.model.Produto;
 import com.project.springCrud.services.ProdutoService;
+import jdk.nashorn.internal.ir.ReturnNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -59,8 +60,22 @@ public class SpringBlogController {
     }
 
     @RequestMapping("/produto/editar/{id}")
-    public String editar(@PathVariable long id){
-        return "produtoedit";
+    public ModelAndView editarProdutoForm(@PathVariable("id") long id){
+        ModelAndView mv = new ModelAndView("produtoedit");
+        Produto produto = produtoService.getById(id);
+        mv.addObject("produto", produto);
+        return mv;
+    }
+
+    @PostMapping("/produto/editar/{id}")
+    public String editarProduto(@PathVariable("id") long id,@Valid Produto produto,
+                                BindingResult result, RedirectAttributes attributes){
+        if(result.hasErrors()){
+            attributes.addFlashAttribute("mensagemErro", "Preencha todos os campos obrigatorios");
+            return "redirect:/produto/editar/"+ produto.getId();
+        }
+        produtoService.save(produto);
+        return "redirect:/produtos";
     }
 
     @RequestMapping("/produto/delete/{id}")
