@@ -4,7 +4,6 @@ import com.project.springCrud.model.Produto;
 import com.project.springCrud.services.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -44,7 +43,7 @@ public class SpringBlogController {
     }
 
     @GetMapping(value = "/novoproduto")
-    public String novoProduto(Model model){
+    public String novoProduto(){
         return "produtoform";
     }
 
@@ -57,6 +56,11 @@ public class SpringBlogController {
 
         produtoService.save(produto);
         return "redirect:/produto/" + produto.getId();
+    }
+
+    @RequestMapping("/produto/editar/{id}")
+    public String editar(@PathVariable long id){
+        return "produtoedit";
     }
 
     @RequestMapping("/produto/delete/{id}")

@@ -33,7 +33,7 @@
                     <td th:text="${produto.nome}">Nome</td>
                     <td th:text="${produto.preco}">Preço</td>
                     <td><a th:href="${'/produto/' + produto.id}">Visualizar</a></td>
-                    <td><a th:href="${'/produto/' + produto.id}">Editar</a></td>
+                    <td><a th:href="${'/produto/editar/' + produto.id}">Editar</a></td>
                     <td><a th:href="${'/produto/delete/' + produto.id}">Deletar</a></td>
                 </tr>
             </tbody>
