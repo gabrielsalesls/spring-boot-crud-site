@@ -6,8 +6,8 @@
 ### 🛠 Tecnologias
 As seguintes ferramentas foram usadas na construção do projeto:
 
-- [Expo](https://expo.io/)
-- [Node.js](https://nodejs.org/en/)
-- [React](https://pt-br.reactjs.org/)
-- [React Native](https://reactnative.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
+- [Java 8](https://www.java.com/pt_BR/download/)
+- [Spring Boot](https://spring.io/)
+- [Bootstrap](https://getbootstrap.com/)
+- [Thymeleaf](https://www.thymeleaf.org/)
+- [MySQL](https://www.mysql.com/)
