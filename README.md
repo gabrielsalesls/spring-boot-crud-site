@@ -1,4 +1,4 @@
-# spring-framework-CRUD
+# spring-framework-crud-site
 
 <p align="center">
   <img src="https://img.shields.io/github/languages/count/gabrielsales311/spring-framework-CRUD?style=for-the-badge">
